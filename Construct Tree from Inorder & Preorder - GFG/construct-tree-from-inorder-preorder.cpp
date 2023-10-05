@@ -63,10 +63,16 @@ class Solution{
         return root ;
         
     }
+    void createMapping(int in[],map<int,int>& nodeToIndex,int n){
+        for(int i=0;i<n;i++){
+            nodeToIndex[in[i]]=i;
+        }
+    }
     Node* buildTree(int in[],int pre[], int n)
     {
         int preorderindex  = 0 ;  
-         
+         map<int,int> nodeToIndex;
+         createMapping(in,nodeToIndex,n);
          Node* ans = solve(in , pre , preorderindex , 0  , n-1 , n );
          return ans ;
     }
